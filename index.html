@@ -41,8 +41,8 @@
 </head>
 <body>
     <div class="countdown" id="countdown">5</div>
-    <video id="timesUpVideo" autoplay muted playsinline>
-        <source src="./flag.mp4" type="video/mp4">
+    <video id="timesUpVideo" autoplay playsinline muted>
+        <source src="./Flag.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <script>
@@ -62,6 +62,11 @@
                 video.play();
             }
         }, 1000);
+        video.addEventListener('canplay', function() {
+            video.play().catch(error => {
+                console.error('Error attempting to play', error);
+            });
+        });
     </script>
 </body>
 </html>
