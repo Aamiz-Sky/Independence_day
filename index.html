@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Independence Day</title>
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fff;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            margin-bottom: -10px;
+            margin-top: -5px;
+        }
+
+        video {
+            display: none; /* Initially hide the video */
+            width: 97vw;
+            height: 97vh;
+            object-fit: cover;
+
+        }
+
+        .countdown {
+            font-size: 10em;
+            animation: scaleUp 1s ease-in-out infinite;
+        }
+
+        @keyframes scaleUp {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown" id="countdown">5</div>
+    <video id="timesUpVideo" autoplay muted playsinline>
+        <source src="./flag.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <script>
+        let countdown = document.getElementById('countdown');
+        let timeLeft = 5;
+        let video = document.getElementById('timesUpVideo');
+
+        let timer = setInterval(function() {
+            timeLeft--;
+            countdown.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                countdown.style.display = 'none';
+                video.style.display = 'block';
+                video.muted = false;
+                video.volume = 1.0;
+                video.play();
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
