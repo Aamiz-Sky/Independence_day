@@ -24,7 +24,6 @@
             height: auto;
             max-height: 100%;
             object-fit: contain;
-            transform: rotate(90deg);
         }
 
         .countdown {
@@ -50,6 +49,15 @@
             color: #fff;
             border: none;
             cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            video {
+                transform: rotate(90deg); /* Rotate video for mobile devices */
+            }
+
+            .countdown {
+                font-size: 10em; /* Adjust font size for mobile devices */
+            }
         }
     </style>
 </head>
